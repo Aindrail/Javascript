@@ -1,5 +1,5 @@
 console.log('hello');
 // alert('hello');
-document.getElementById('someText').innerHTML="Hello Bhai";
 
-prompt('Whats your Age :');
+var age = prompt('Whats your Age :');
+document.getElementById('someText').innerHTML= 'Your age is '+ age;
