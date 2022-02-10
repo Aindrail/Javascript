@@ -15,7 +15,25 @@
      <!-- <script src="loops.js"></script> -->
      <!-- <script src="string_method.js"></script> -->
      <!-- <script src="array.js"></script> -->
-     <script src="condition_oper.js"></script>
+     <!-- <script src="condition_oper.js"></script> -->
+<script>
+    let students= `[
+    {
+        "name":"Aindrail",
+        "age": 20,
+        "roll" : 2029044
+    },
+    {
+        "name": "Souvik",
+        "age": 20,
+        "roll" : 2029032
+
+    }
+]`
+         console.log(JSON.parse(students)); //All
+         console.log(JSON.parse(students)[1]); // all of a specific object
+         console.log(JSON.parse(students)[1].age); //specific attribute
+</script>
 </body>
 
 
