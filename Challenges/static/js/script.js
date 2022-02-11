@@ -22,3 +22,13 @@ function generateCat(){
     div.appendChild(image);
 
 }
+
+//Challenge -3 R P S
+
+function rpsGame(yourChoice){
+console.log(yourChoice);
+var humanCh,botCh;
+// humanCh = yourChoice.id;
+// botCh
+
+}
