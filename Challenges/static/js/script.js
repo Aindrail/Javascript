@@ -91,6 +91,7 @@ function rpsFrontEnd(humanImageChoice, botImageChoice , finalMessage){
     humanDiv.innerHTML = "<img src='" + imagesDatabase[humanImageChoice.id] + "' height =250 width =250 style='box-shadow: 0px 10px 50px rgba(20, 48, 230, 0.8);' >"
    messageDiv.innerHTML="<h1 style='color: "+finalMessage['color'] +"; font-size: 60px; padding: 30px;'>"+finalMessage['message']+"</h1>";
     botDiv.innerHTML = "<img src='" + imagesDatabase[botImageChoice] + "' height =250 width =250 style='box-shadow: 0px 10px 50px rgba(243, 38, 24, 0.8);' >"
+   //each div is now appended here in the sequence
     document.getElementById('flexbox-rps-div').appendChild(humanDiv);
     document.getElementById('flexbox-rps-div').appendChild(messageDiv);
     document.getElementById('flexbox-rps-div').appendChild(botDiv);
