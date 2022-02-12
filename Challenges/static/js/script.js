@@ -69,7 +69,7 @@ function finalMessage([yourScore]){
     else{
         return{'message': 'You Won :)', 'color': 'green'};
     }
-} //returns
+} //returns message and color which will be used to display messsage in frontend
 
 function rpsFrontEnd(humanImageChoice, botImageChoice , finalMessage){
     var imagesDatabase = {
