@@ -35,7 +35,7 @@ message = finalMessage(result);
  rpsFrontEnd(yourChoice,botCh,message);
 
 }
-
+//to genrate a random number and then take it and make it a object
 function randToRps(){
     return Math.floor(Math.random() * 3); 
 }
