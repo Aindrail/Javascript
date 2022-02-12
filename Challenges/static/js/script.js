@@ -44,6 +44,8 @@ function noTochoice(num){
     return ['rock','paper','scissors'][num];
 }
 
+//decides the winner and returns scores
+
 function winner (yourChoice, botCh){
     var rpsDatabase = {
         'rock' :{
@@ -58,11 +60,11 @@ function winner (yourChoice, botCh){
 
 }
 
-function finalMessage([yourScore , compScore]){
+function finalMessage([yourScore]){
     if(yourScore === 0){
-        return {'message': 'You lost!', 'color': 'red'};
+        return {'message': 'You lost :(', 'color': 'red'};
     }else if (yourScore === 0.5){
-        return {'message': 'Draw', 'color': 'yellow'};
+        return {'message': 'Draw .. :|', 'color': 'yellow'};
     }
     else{
         return{'message': 'You Won :)', 'color': 'green'};
