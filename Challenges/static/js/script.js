@@ -71,6 +71,7 @@ function finalMessage([yourScore]){
     }
 } //returns message and color which will be used to display messsage in frontend
 
+//this is the frond end diaplay function all the DOM happens here
 function rpsFrontEnd(humanImageChoice, botImageChoice , finalMessage){
     var imagesDatabase = {
         'rock': document.getElementById('rock').src,
