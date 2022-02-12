@@ -39,6 +39,7 @@ message = finalMessage(result);
 function randToRps(){
     return Math.floor(Math.random() * 3); 
 }
+//it converts the no to any of RPS
 function noTochoice(num){
     return ['rock','paper','scissors'][num];
 }
