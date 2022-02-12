@@ -59,7 +59,7 @@ function winner (yourChoice, botCh){
     return [yourScore,compScore];
 
 }
-
+//here your score is given from result in rpsGame function
 function finalMessage([yourScore]){
     if(yourScore === 0){
         return {'message': 'You lost :(', 'color': 'red'};
@@ -69,7 +69,7 @@ function finalMessage([yourScore]){
     else{
         return{'message': 'You Won :)', 'color': 'green'};
     }
-}
+} //returns
 
 function rpsFrontEnd(humanImageChoice, botImageChoice , finalMessage){
     var imagesDatabase = {
