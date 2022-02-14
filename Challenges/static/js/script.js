@@ -31,7 +31,7 @@ var humanCh,botCh;
  humanCh = yourChoice.id;
   botCh = noTochoice(randToRps()); 
 result = winner(humanCh,botCh);
-message = finalMessage(result);
+message = finalMessage(result[0]);
  rpsFrontEnd(yourChoice,botCh,message);
 
 }
@@ -61,12 +61,13 @@ function winner (yourChoice, botCh){
 }
 //here your score is given from result in rpsGame function
 function finalMessage(yourScore){
+    console.log(yourScore);
     if(yourScore === 0){
         return {'message': 'You lost :(', 'color': 'red'};
     }else if (yourScore === 0.5){
         return {'message': 'Draw .. :|', 'color': 'yellow'};
     }
-    else{
+    else if(yourScore === 1) {
         return{'message': 'You Won :)', 'color': 'green'};
     }
 } //returns message and color which will be used to display messsage in frontend
@@ -129,3 +130,33 @@ else{
          all_button[i].classList.add('btn-danger');
      }
  }
+ function buttonGreen(){
+    for( let i =0 ; i< all_button.length ; i++){
+        all_button[i].classList.remove(all_button[i].classList[1]); 
+        all_button[i].classList.add('btn-success');
+    }
+}
+function buttonBlue(){
+    for( let i =0 ; i< all_button.length ; i++){
+        all_button[i].classList.remove(all_button[i].classList[1]); 
+        all_button[i].classList.add('btn-primary');
+    }
+
+}
+
+function buttonReset(){
+    
+        for( let i =0 ; i< all_button.length ; i++){
+            all_button[i].classList.remove(all_button[i].classList[1]); 
+            all_button[i].classList.add(copyAll[i]);
+        }
+    
+}
+
+function randomColor(){
+    for( let i =0 ; i< all_button.length ; i++){
+        var choices = ['btn-primary', 'btn-danger','btn-warning','btn-success'];
+        all_button[i].classList.remove(all_button[i].classList[1]); 
+        all_button[i].classList.add(choices[Math.floor(Math.random() * 4)]);
+    }
+}
