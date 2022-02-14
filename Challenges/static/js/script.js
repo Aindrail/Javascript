@@ -26,7 +26,7 @@ function generateCat(){
 //Challenge -3 R P S
 
 function rpsGame(yourChoice){
-console.log(yourChoice);
+// console.log(yourChoice);
 var humanCh,botCh;
  humanCh = yourChoice.id;
   botCh = noTochoice(randToRps()); 
@@ -60,7 +60,7 @@ function winner (yourChoice, botCh){
 
 }
 //here your score is given from result in rpsGame function
-function finalMessage([yourScore]){
+function finalMessage(yourScore){
     if(yourScore === 0){
         return {'message': 'You lost :(', 'color': 'red'};
     }else if (yourScore === 0.5){
@@ -96,3 +96,36 @@ function rpsFrontEnd(humanImageChoice, botImageChoice , finalMessage){
     document.getElementById('flexbox-rps-div').appendChild(messageDiv);
     document.getElementById('flexbox-rps-div').appendChild(botDiv);
 }
+
+
+//Challenge - 4 Change the colors of all buttons
+ var all_button = document.getElementsByTagName('button');
+ var copyAll = [];
+ for (let i =0 ; i< all_button.length; i++){
+     copyAll.push(all_button[i].classList[1]);
+ }
+
+ function buttonColorChange(buttonThingy){
+if(buttonThingy.value === 'red'){
+    buttonRed();
+}
+else if (buttonThingy.value === 'green'){
+    buttonGreen();
+}
+else if(buttonThingy.value === 'blue'){
+    buttonBlue();
+}
+else if(buttonThingy.value === 'reset'){
+    buttonReset();
+}
+else{
+    randomColor();
+}
+ }
+
+ function buttonRed(){
+     for( let i =0 ; i< all_button.length ; i++){
+         all_button[i].classList.remove(all_button[i].classList[1]); 
+         all_button[i].classList.add('btn-danger');
+     }
+ }
