@@ -160,3 +160,4 @@ function randomColor(){
         all_button[i].classList.add(choices[Math.floor(Math.random() * 4)]);
     }
 }
+
