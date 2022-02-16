@@ -162,3 +162,38 @@ function randomColor(){
 }
 
 //Challenge 5 : Blackjack Challenge
+
+let blackjackGame ={
+    'you': {'scorespan':'#your-score', 'div': '#your-box', 'score':0},
+    'dealer':{
+        'scorespan':'#dealer-score', 'div':'#dealer-box', 'score':0
+    }
+};
+const YOU =blackjackGame['you']
+const DEALER = blackjackGame['dealer']
+const hitsound = new Audio('static/sound/swish.m4a');
+
+document.querySelector('#blackjack-hit-buttton').addEventListener('click',blackjackHit);
+document.querySelector('#blackjack-deal-buttton').addEventListener('click',blackjackDeal);
+function blackjackHit(){
+showCard(YOU);
+showCard(DEALER);
+}
+
+function showCard(activePlayer){
+    let cardImg = document.createElement('img');
+    cardImg.src = 'static/image/Q.png';
+    document.querySelector(activePlayer['div']).appendChild(cardImg);
+    hitsound.play();
+
+}
+
+function blackjackDeal(){
+    let yourImages = document.querySelector('#your-box').querySelectorAll('img');
+    for(i=0;i<yourImages.length;i++)
+    yourImages[i].remove();
+
+    let dealerImage = document.querySelector('#dealer-box').querySelectorAll('img');
+    for(i=0;i<dealerImage.length;i++)
+    dealerImage[i].remove();
+}
