@@ -167,7 +167,8 @@ let blackjackGame ={
     'you': {'scorespan':'#your-score', 'div': '#your-box', 'score':0},
     'dealer':{
         'scorespan':'#dealer-score', 'div':'#dealer-box', 'score':0
-    }
+    },
+    'card':['2','3','4','5','6','7','8','9','10','J','K','Q','A'],
 };
 const YOU =blackjackGame['you']
 const DEALER = blackjackGame['dealer']
@@ -175,14 +176,23 @@ const hitsound = new Audio('static/sound/swish.m4a');
 
 document.querySelector('#blackjack-hit-buttton').addEventListener('click',blackjackHit);
 document.querySelector('#blackjack-deal-buttton').addEventListener('click',blackjackDeal);
+
+
 function blackjackHit(){
-showCard(YOU);
-showCard(DEALER);
+    let card = randomCard();
+
+showCard(card,YOU);
+showCard(card,DEALER);
 }
 
-function showCard(activePlayer){
+function randomCard(){
+    let randomIndex = Math.floor(Math.random() * 13);
+    return blackjackGame['card'][randomIndex];
+}
+
+function showCard(card,activePlayer){
     let cardImg = document.createElement('img');
-    cardImg.src = 'static/image/Q.png';
+    cardImg.src = `static/image/${card}.png`;  //string templating
     document.querySelector(activePlayer['div']).appendChild(cardImg);
     hitsound.play();
 
@@ -197,3 +207,4 @@ function blackjackDeal(){
     for(i=0;i<dealerImage.length;i++)
     dealerImage[i].remove();
 }
+
