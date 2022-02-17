@@ -252,3 +252,25 @@ function dealerLogic(){
     showScore(DEALER);
 }
 
+function computeWinner(){
+    let winner;
+    if(YOU['score'] <=21){
+        // condition : you have higher whrn delaer bust
+        if(YOU['score'] > DEALER['score'] || (DEALER['score'] >21)){
+            winner = YOU;
+        }else if(YOU['score'] < DEALER['score']){
+            winner = DEALER;
+        }
+        else if(YOU['score'] === DEALER['score'] ){
+            console.log('YOU DREW');
+        }
+        
+    }
+    else if(YOU['score']>21 && DEALER['score'] <=21){
+        winner = DEALER;
+    }
+    else if( YOU['score']>21 && DEALER['score'] >21 ){
+        console.log('YOU DREW');
+    }
+    return winner;
+}
