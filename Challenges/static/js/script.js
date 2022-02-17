@@ -275,13 +275,15 @@ function showScore(activePlayer){
 async function dealerLogic(){
      blackjackGame['isStand'] = true;
      if(YOU['score']>21){
-        let card = randomCard();
-        showCard(card,DEALER);
-        updateScore(card,DEALER);
-        showScore(DEALER);
+         
+            let card = randomCard();
+            showCard(card,DEALER);
+            updateScore(card,DEALER);
+            showScore(DEALER);
+         
         
      }else{
-        while(DEALER['score'] <20 && blackjackGame['isStand'] === true){
+        while(DEALER['score'] <YOU['score'] && blackjackGame['isStand'] === true){
             let card = randomCard();
             showCard(card,DEALER);
             updateScore(card,DEALER);
