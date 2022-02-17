@@ -251,3 +251,4 @@ function dealerLogic(){
     updateScore(card,DEALER);
     showScore(DEALER);
 }
+
