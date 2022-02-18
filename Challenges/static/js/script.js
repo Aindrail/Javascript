@@ -173,8 +173,8 @@ let blackjackGame ={
     'wins':0,
     'losses':0,
     'draw':0,
-    'isStand':false,
-    'turnsOver': false,
+    'isStand':false,  //for stand button
+    'turnsOver': false,  //for not incrementing win or loss after we press deal 
 
 };
 const YOU =blackjackGame['you']
@@ -188,7 +188,7 @@ document.querySelector('#blackjack-hit-buttton').addEventListener('click',blackj
 document.querySelector('#blackjack-stand-buttton').addEventListener('click',dealerLogic);
 document.querySelector('#blackjack-deal-buttton').addEventListener('click',blackjackDeal);
 
-
+//hit button
 function blackjackHit(){
     if(blackjackGame['isStand'] === false){
 
@@ -200,13 +200,14 @@ updateScore(card,YOU);
 showScore(YOU);
 }
 }
+//generated random cards
 function randomCard(){
     let randomIndex = Math.floor(Math.random() * 13);
     return blackjackGame['card'][randomIndex];
 }
-
+//front end showing of the card
 function showCard(card,activePlayer){
-
+//if greater than 21 it will be busted
     if(activePlayer['score'] <=21 ){
         let cardImg = document.createElement('img');
         cardImg.src = `static/image/${card}.png`;  //string templating
@@ -218,27 +219,27 @@ function showCard(card,activePlayer){
     
 
 
-
+//it will do all the AI work
 function blackjackDeal(){
     if(blackjackGame['turnsOver'] === true){
         blackjackGame['isStand'] = false;
         
-        let yourImages = document.querySelector('#your-box').querySelectorAll('img');
+        let yourImages = document.querySelector('#your-box').querySelectorAll('img'); //to remoove all player card and restart the game
         for(i=0;i<yourImages.length;i++)
         yourImages[i].remove();
     
-        let dealerImage = document.querySelector('#dealer-box').querySelectorAll('img');
-        for(i=0;i<dealerImage.length;i++)
+        let dealerImage = document.querySelector('#dealer-box').querySelectorAll('img'); 
+        for(i=0;i<dealerImage.length;i++) //to remove all bot cards
         dealerImage[i].remove();
     
         YOU['score']=0;
         DEALER['score'] = 0;
-    
+    //make the score as 0 (count of card) of bot and player
         document.querySelector('#your-score').textContent = 0;
         document.querySelector('#your-score').style.color = 'white';
         document.querySelector('#dealer-score').textContent = 0;
         document.querySelector('#dealer-score').style.color = 'white';
-    
+    // display lets play again
         document.querySelector('#blackjack-result').textContent = "Let's Play";
         document.querySelector('#blackjack-result').style.color = 'black';
 
@@ -261,6 +262,7 @@ else
 activePlayer['score'] += blackjackGame['cardsMap'][card];
 
 }
+//diaplay score in front end
 function showScore(activePlayer){
     if(activePlayer['score']>21){
         document.querySelector(activePlayer['scorespan']).textContent = 'BUSTED';
@@ -268,13 +270,14 @@ function showScore(activePlayer){
     }else
     document.querySelector(activePlayer['scorespan']).textContent = activePlayer['score'];
 }
+//this function is to delay in card spawning
  function sleep (ms){
     return new Promise(resolve => setTimeout(resolve,ms));
 }
-
+//this is made async cause await in line 294 need to be inside a async fun
 async function dealerLogic(){
      blackjackGame['isStand'] = true;
-     if(YOU['score']>21){
+     if(YOU['score']>21){ //if greater than 21 sj=hows busted
          
             let card = randomCard();
             showCard(card,DEALER);
@@ -283,7 +286,7 @@ async function dealerLogic(){
          
         
      }else{
-        while(DEALER['score'] <YOU['score'] && blackjackGame['isStand'] === true){
+        while(DEALER['score'] <YOU['score'] && blackjackGame['isStand'] === true){  //AI logic
             let card = randomCard();
             showCard(card,DEALER);
             updateScore(card,DEALER);
@@ -295,11 +298,11 @@ async function dealerLogic(){
     // showWinner(computeWinner());
   
         blackjackGame['turnsOver'] = true;
-        let winner = computeWinner() ;
-        showWinner(winner);
+        let winner = computeWinner() ;  // calculates winner
+        showWinner(winner); //Displays winner
     
 }
-
+//function to copute winnner
 function computeWinner(){
     let winner;
     if(YOU['score'] <=21){
@@ -365,3 +368,4 @@ if(blackjackGame['turnsOver'] === true){
 
 
 }
+//Done by :- Aindrail Santra
